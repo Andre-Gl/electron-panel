@@ -8,6 +8,7 @@ app.on('ready', function() {
     height: 240,
     minHeight: 100,
     minWidth: 100,
+    resizable: false,
     show: false,
     webPreferences: {
       preload: `${__dirname}/preload.js`,

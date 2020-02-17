@@ -76,7 +76,7 @@ describe('Electron Panel', function () {
       }
     });
 
-    it('should show panel', function () {
+    it('should animate panel entering view', function () {
       return this.app.client.waitUntilWindowLoaded()
         .getWindowCount().should.eventually.equal(1);
     });
@@ -99,7 +99,7 @@ describe('Electron Panel', function () {
       }
     });
   
-    it('should show panel', function () {
+    it('should close panel', function () {
       return this.app.client.waitUntilWindowLoaded()
           .getWindowCount().should.eventually.equal(1);
     });
@@ -122,7 +122,7 @@ describe('Electron Panel', function () {
       }
     });
   
-    it('should show panel', function () {
+    it('should animate panel leave', function () {
       return this.app.client.waitUntilWindowLoaded()
           .getWindowCount().should.eventually.equal(1);
     });

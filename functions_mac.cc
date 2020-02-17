@@ -57,6 +57,8 @@ napi_value MakePanel(napi_env env, napi_callback_info info) {
 
   [window setFrame:originalWindow.frame display:NO];
   [window setContentSize:mainContentView.frame.size];
+  [window setMinSize: originalWindow.minSize];
+  [window setMaxSize: originalWindow.maxSize];
   [window
       setAppearance:[NSAppearance appearanceNamed:NSAppearanceNameDarkAqua]];
   [window setMovableByWindowBackground:YES];
@@ -68,6 +70,11 @@ napi_value MakePanel(napi_env env, napi_callback_info info) {
   [window setStyleMask:NSWindowStyleMaskTitled |
                        NSWindowStyleMaskFullSizeContentView |
                        NSWindowStyleMaskNonactivatingPanel];
+
+  if (originalWindow.resizable) {
+    window.styleMask |= NSWindowStyleMaskResizable;
+  }
+
   [window setCollectionBehavior:NSWindowCollectionBehaviorCanJoinAllSpaces |
                                 NSWindowCollectionBehaviorFullScreenAuxiliary];
 
