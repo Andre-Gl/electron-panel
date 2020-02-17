@@ -9,6 +9,7 @@ NOTE: Only MacOS implementation for now.
 ## Usage
 Base Api is based on BrowserWindow.
 ```javascript
+const { Panel } = require('electron-panel');
 const win = new Panel({
   center: true,
   width: 320,
