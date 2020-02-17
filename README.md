@@ -4,7 +4,7 @@ Enables creating a browser window in Electron that behaves like a Panel.
 
 Panels are typically used for auxillary windows and do not activate the application – as such they can appear ontop of other apps in the same way as Spotlight or 1Password, for example.
 
-NOTE: Only MacOS impelmentation for now.
+NOTE: Only MacOS implementation for now.
 
 ## Usage
 Base Api is based on BrowserWindow.
