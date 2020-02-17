@@ -32,10 +32,10 @@ win.close();
 ### animatePanelEnter
 Animate slide in and fade in the panel.
 ```javascript
-win.animatePanelEnter
+win.animatePanelEnter()
 ```
 ### animatePanelLeaveAndClose
 Fade out the penal.
 ```javascript
-win.animatePanelLeaveAndClose
+win.animatePanelLeaveAndClose()
 ```
