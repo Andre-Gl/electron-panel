@@ -29,6 +29,18 @@ class Panel extends BrowserWindow {
   animatePanelLeaveAndClose() {
     NativeExtension.AnimatePanelLeave(this.getNativeWindowHandle());
   }
+  
+  setBounds(bounds, animate) {
+    // not supported
+  }
+
+  setPosition(x, y, animate) {
+    // not supported
+  }
+
+  setSize(w, h, animate) {
+    // not supported
+  }
 }
 
 module.exports = {
