@@ -19,6 +19,13 @@
   }
   return self;
 }
+
+- (void)setFrame:(NSRect)windowFrame display:(BOOL)displayViews {
+  [super setFrame:windowFrame
+          display:displayViews];
+  [self.originalWindow setFrame:windowFrame
+                        display:displayViews];
+}
 @end
 
 napi_value MakePanel(napi_env env, napi_callback_info info) {
@@ -57,8 +64,8 @@ napi_value MakePanel(napi_env env, napi_callback_info info) {
 
   [window setFrame:originalWindow.frame display:NO];
   [window setContentSize:mainContentView.frame.size];
-  [window setMinSize: originalWindow.minSize];
-  [window setMaxSize: originalWindow.maxSize];
+  [window setContentMinSize:originalWindow.contentMinSize];
+  [window setContentMaxSize:originalWindow.contentMaxSize];
   [window
       setAppearance:[NSAppearance appearanceNamed:NSAppearanceNameDarkAqua]];
   [window setMovableByWindowBackground:YES];
@@ -97,6 +104,7 @@ napi_value MakePanel(napi_env env, napi_callback_info info) {
   // Move content to NSPanel
   [mainContentView removeFromSuperview];
   [window setContentView:mainContentView];
+  [mainContentView viewDidMoveToWindow];
 
   status = napi_close_handle_scope(env, scope);
   if (status != napi_ok) {
