@@ -29,14 +29,14 @@ win.on('ready-to-show', () => {
 win.close();
 ```
 
-## Additional Api
-### animatePanelEnter
-Animate slide in and fade in the panel.
+## BrowserWindow API extension
+### show(animate: bool)
+If true animates slide in and fade in the panel.
 ```javascript
-win.animatePanelEnter()
+win.show(true)
 ```
-### animatePanelLeaveAndClose
-Fade out the penal.
+### close(animate: bool)
+If true fades out the penal.
 ```javascript
-win.animatePanelLeaveAndClose()
+win.close(true)
 ```
