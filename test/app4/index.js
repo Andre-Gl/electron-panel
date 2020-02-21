@@ -28,6 +28,6 @@ app.on('ready', function() {
     },
   });
   panel.loadURL(`file://${__dirname}/index.html`);
-  setTimeout(() => panel.animatePanelLeaveAndClose());
-  
+  setTimeout(() => panel.close(true));
+
 });

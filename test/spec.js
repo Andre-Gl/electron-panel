@@ -59,7 +59,7 @@ describe('Electron Panel', function () {
     });
   });
 
-  describe('#animatePanelEnter', function () {
+  describe('#show with animation enabled', function () {
 
     beforeEach(function () {
       this.app = new Application({
@@ -92,21 +92,21 @@ describe('Electron Panel', function () {
       });
       return this.app.start();
     });
-  
+
     afterEach(function () {
       if (this.app && this.app.isRunning()) {
         return this.app.stop();
       }
     });
-  
+
     it('should close panel', function () {
       return this.app.client.waitUntilWindowLoaded()
           .getWindowCount().should.eventually.equal(1);
     });
   });
-  
-  describe('#aniamtePanelLeaveAndClose', function () {
-  
+
+  describe('#close with animation enabled', function () {
+
     beforeEach(function () {
       this.app = new Application({
         path: electronPath,
@@ -115,13 +115,13 @@ describe('Electron Panel', function () {
       });
       return this.app.start();
     });
-  
+
     afterEach(function () {
       if (this.app && this.app.isRunning()) {
         return this.app.stop();
       }
     });
-  
+
     it('should animate panel leave', function () {
       return this.app.client.waitUntilWindowLoaded()
           .getWindowCount().should.eventually.equal(1);

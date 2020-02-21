@@ -16,6 +16,6 @@ app.on('ready', function() {
   });
   mainWindow.loadURL(`file://${__dirname}/index.html`);
   mainWindow.on('ready-to-show', () => {
-    mainWindow.animatePanelEnter();
+    mainWindow.show(true);
   });
 });

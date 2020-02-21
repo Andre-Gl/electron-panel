@@ -10,26 +10,26 @@ class Panel extends BrowserWindow {
     }
   }
 
-  show() {
-    NativeExtension.ShowPanel(this.getNativeWindowHandle());
+  show(animate) {
+    if (animate) {
+      NativeExtension.AnimatePanelEnter(this.getNativeWindowHandle());
+    } else {
+      NativeExtension.ShowPanel(this.getNativeWindowHandle());
+    }
   }
 
-  close() {
-    NativeExtension.DestroyPanel(this.getNativeWindowHandle());
+  close(animate) {
+    if (animate) {
+      NativeExtension.AnimatePanelLeave(this.getNativeWindowHandle());
+    } else {
+      NativeExtension.DestroyPanel(this.getNativeWindowHandle());
+    }
   }
 
   destroy() {
     NativeExtension.DestroyPanel(this.getNativeWindowHandle());
   }
 
-  animatePanelEnter() {
-    NativeExtension.AnimatePanelEnter(this.getNativeWindowHandle());
-  }
-
-  animatePanelLeaveAndClose() {
-    NativeExtension.AnimatePanelLeave(this.getNativeWindowHandle());
-  }
-  
   setBounds(bounds, animate) {
     // not supported
   }
