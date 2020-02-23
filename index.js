@@ -1,6 +1,9 @@
 const { BrowserWindow } = require('electron');
 const NativeExtension = require('bindings')('NativeExtension');
 
+// Only darwin supported for now
+var isDarwin = process.platform === "darwin";
+
 class Panel extends BrowserWindow {
   constructor(options) {
     super({ ...options, show: false });
@@ -11,23 +14,15 @@ class Panel extends BrowserWindow {
   }
 
   show(animate) {
-    if (animate) {
-      NativeExtension.AnimatePanelEnter(this.getNativeWindowHandle());
-    } else {
-      NativeExtension.ShowPanel(this.getNativeWindowHandle());
-    }
+    NativeExtension.ShowPanel(this.getNativeWindowHandle(), animate);
   }
 
   close(animate) {
-    if (animate) {
-      NativeExtension.AnimatePanelLeave(this.getNativeWindowHandle());
-    } else {
-      NativeExtension.DestroyPanel(this.getNativeWindowHandle());
-    }
+    NativeExtension.ClosePanel(this.getNativeWindowHandle(), animate);
   }
 
   destroy() {
-    NativeExtension.DestroyPanel(this.getNativeWindowHandle());
+    NativeExtension.ClosePanel(this.getNativeWindowHandle(), false);
   }
 
   setBounds(bounds, animate) {
@@ -44,5 +39,5 @@ class Panel extends BrowserWindow {
 }
 
 module.exports = {
-  Panel,
+  Panel: isDarwin ? Panel : BrowserWindow,
 };

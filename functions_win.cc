@@ -8,14 +8,7 @@ napi_value ShowPanel(napi_env env, napi_callback_info info) {
   return 0;
 }
 
-napi_value DestroyPanel(napi_env env, napi_callback_info info) {
+napi_value ClosePanel(napi_env env, napi_callback_info info) {
   return 0;
 }
 
-napi_value AnimatePanelEnter(napi_env env, napi_callback_info info) {
-  return 0;
-}
-
-napi_value AnimatePanelLeave(napi_env env, napi_callback_info info) {
-  return 0;
-}
