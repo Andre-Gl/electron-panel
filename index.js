@@ -14,10 +14,12 @@ class Panel extends BrowserWindow {
   }
 
   show(animate) {
+    animate = animate || false;
     NativeExtension.ShowPanel(this.getNativeWindowHandle(), animate);
   }
 
   close(animate) {
+    animate = animate || false;
     NativeExtension.ClosePanel(this.getNativeWindowHandle(), animate);
   }
 
