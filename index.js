@@ -18,6 +18,11 @@ class Panel extends BrowserWindow {
     NativeExtension.ShowPanel(this.getNativeWindowHandle(), animate);
   }
 
+  hide(animate) {
+    animate = animate || false;
+    NativeExtension.HidePanel(this.getNativeWindowHandle(), animate);
+  }
+
   close(animate) {
     animate = animate || false;
     NativeExtension.ClosePanel(this.getNativeWindowHandle(), animate);
@@ -28,15 +33,36 @@ class Panel extends BrowserWindow {
   }
 
   setBounds(bounds, animate) {
-    // not supported
+    animate = animate || false;
+    super.setBounds(bounds);
+    NativeExtension.Sync(this.getNativeWindowHandle(), animate);
   }
 
   setPosition(x, y, animate) {
-    // not supported
+    animate = animate || false;
+    super.setPosition(x, y);
+    NativeExtension.Sync(this.getNativeWindowHandle(), animate);
   }
 
   setSize(w, h, animate) {
-    // not supported
+    animate = animate || false;
+    super.setSize(w, h);
+    NativeExtension.Sync(this.getNativeWindowHandle(), animate);
+  }
+
+  setMinimumSize(minWidth, minHeight) {
+    super.setMinimumSize(minWidth, minHeight);
+    NativeExtension.Sync(this.getNativeWindowHandle(), false);
+  }
+  
+  setResizable(value) {
+    super.setResizable(value);
+    NativeExtension.Sync(this.getNativeWindowHandle(), false);
+  }
+  
+  setAspectRatio(value) {
+    super.setAspectRatio(value);
+    NativeExtension.Sync(this.getNativeWindowHandle(), false);
   }
 }
 

@@ -12,9 +12,11 @@ napi_value Init(napi_env env, napi_value exports) {
   napi_property_descriptor descriptors[] = {
       DECLARE_NAPI_METHOD("MakePanel", MakePanel),
       DECLARE_NAPI_METHOD("ShowPanel", ShowPanel),
-      DECLARE_NAPI_METHOD("ClosePanel", ClosePanel)};
+      DECLARE_NAPI_METHOD("HidePanel", HidePanel),
+      DECLARE_NAPI_METHOD("ClosePanel", ClosePanel),
+      DECLARE_NAPI_METHOD("Sync", Sync)};
 
-  status = napi_define_properties(env, exports, 3, descriptors);
+  status = napi_define_properties(env, exports, 5, descriptors);
   if (status != napi_ok)
     return NULL;
   return exports;

@@ -1,5 +1,5 @@
 {
-  "name": "electron-panel",
+  "name": "electron-panel-window",
   "description": "Enables creating a browser window in Electron that behaves like a Panel.",
   "version": "0.0.1",
   "main": "index.js",
@@ -18,13 +18,5 @@
   },
   "dependencies": {
     "bindings": "^1.5.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Andre-Gl/electron-panel.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Andre-Gl/electron-panel/issues"
-  },
-  "homepage": "https://github.com/Andre-Gl/electron-panel"
+  }
 }
